@@ -235,18 +235,18 @@ Content-Type: application/json
 
 ```json
 {
-  "success": true,
-  "message": "Login berhasil",
-  "data": {
-    "accessToken": "eyJhbGc...",
-    "refreshToken": "eyJhbGc...",
-    "user": {
-      "id": 1,
-      "name": "John Doe",
-      "email": "john@example.com",
-      "role": "user"
-    }
-  }
+	"success": true,
+	"message": "Login berhasil",
+	"data": {
+		"accessToken": "eyJhbGc...",
+		"refreshToken": "eyJhbGc...",
+		"user": {
+			"id": 1,
+			"name": "John Doe",
+			"email": "john@example.com",
+			"role": "user"
+		}
+	}
 }
 ```
 
@@ -371,40 +371,30 @@ import { useLogin } from "../hooks/useAuth";
 import { useState } from "react";
 
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const loginMutation = useLogin();
+	const [email, setEmail] = useState("");
+	const [password, setPassword] = useState("");
+	const loginMutation = useLogin();
 
-  const handleLogin = async (e) => {
-    e.preventDefault();
+	const handleLogin = async (e) => {
+		e.preventDefault();
 
-    try {
-      await loginMutation.mutateAsync({ email, password });
-      alert("Login berhasil!");
-    } catch (error) {
-      alert(error.response?.data?.message || "Login gagal");
-    }
-  };
+		try {
+			await loginMutation.mutateAsync({ email, password });
+			alert("Login berhasil!");
+		} catch (error) {
+			alert(error.response?.data?.message || "Login gagal");
+		}
+	};
 
-  return (
-    <form onSubmit={handleLogin}>
-      <input
-        type="email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        required
-      />
-      <input
-        type="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        required
-      />
-      <button type="submit" disabled={loginMutation.isPending}>
-        {loginMutation.isPending ? "Loading..." : "Login"}
-      </button>
-    </form>
-  );
+	return (
+		<form onSubmit={handleLogin}>
+			<input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+			<input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+			<button type="submit" disabled={loginMutation.isPending}>
+				{loginMutation.isPending ? "Loading..." : "Login"}
+			</button>
+		</form>
+	);
 };
 ```
 
@@ -414,13 +404,13 @@ const Login = () => {
 import { Navigate } from "react-router-dom";
 
 const ProtectedRoute = ({ children }) => {
-  const token = localStorage.getItem("token");
+	const token = localStorage.getItem("token");
 
-  if (!token) {
-    return <Navigate to="/login" replace />;
-  }
+	if (!token) {
+		return <Navigate to="/login" replace />;
+	}
 
-  return children;
+	return children;
 };
 ```
 
@@ -508,14 +498,14 @@ lsof -ti:3000 | xargs kill -9
 
 ```json
 {
-  "bcrypt": "^5.1.1",
-  "cors": "^2.8.5",
-  "dotenv": "^16.3.1",
-  "express": "^4.18.2",
-  "express-rate-limit": "^7.1.5",
-  "helmet": "^7.1.0",
-  "jsonwebtoken": "^9.0.2",
-  "mysql2": "^3.6.5"
+	"bcrypt": "^5.1.1",
+	"cors": "^2.8.5",
+	"dotenv": "^16.3.1",
+	"express": "^4.18.2",
+	"express-rate-limit": "^7.1.5",
+	"helmet": "^7.1.0",
+	"jsonwebtoken": "^9.0.2",
+	"mysql2": "^3.6.5"
 }
 ```
 
@@ -523,11 +513,11 @@ lsof -ti:3000 | xargs kill -9
 
 ```json
 {
-  "@tanstack/react-query": "^5.17.0",
-  "axios": "^1.6.5",
-  "react": "^18.2.0",
-  "react-dom": "^18.2.0",
-  "react-router-dom": "^6.21.1"
+	"@tanstack/react-query": "^5.17.0",
+	"axios": "^1.6.5",
+	"react": "^18.2.0",
+	"react-dom": "^18.2.0",
+	"react-router-dom": "^6.21.1"
 }
 ```
 

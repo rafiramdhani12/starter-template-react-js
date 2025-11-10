@@ -7,6 +7,7 @@ const Dashboard = () => {
   return (
     <>
       <h1 className="text-center font-bold text-2xl">{currentUser?.name}</h1>
+      <button className="btn btn-primary">hi tots</button>
     </>
   );
 };
